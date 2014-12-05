@@ -39,12 +39,22 @@ function numberWithDots(x) {
 }
 
 function addTheDot(map, price, latLng, house){
-  var marker = new google.maps.Marker({
-      position: latLng,
-      title: price,
-      map: map,
-      icon: 'images/purple.png'
-  });
+    if(house.price < 30000000) {
+      var marker = new google.maps.Marker({
+          position: latLng,
+          title: price,
+          map: map,
+          icon: 'images/purple.png'
+      });
+    }
+    else {
+      var marker = new google.maps.Marker({
+          position: latLng,
+          title: price,
+          map: map,
+          icon: 'images/orange.png'
+      });
+    }
   
   markers.push(marker);
   if(house.price > 1000000 && house.price < 20000000) {
@@ -95,7 +105,7 @@ function clearMarkers() {
 }
 // Shows any markers currently in the array.
 function showU20(map) {
-  clearMarkers();
+  //clearMarkers();
   for (var i = 0; i < u20.length; i++) {
     u20[i].setMap(map);
   }
@@ -105,7 +115,7 @@ function showUnder20() {
 }
 
 function s20to30(map) {
-  clearMarkers();
+  //clearMarkers();
   for (var i = 0; i < s20t30.length; i++) {
     s20t30[i].setMap(map);
   }
