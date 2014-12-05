@@ -5,7 +5,7 @@ var s20t30 = [];
 
 function initialize() {
   map = new google.maps.Map(document.getElementById('map-canvas'),{
-    zoom: 12,
+    zoom: 11,
     center: new google.maps.LatLng(64.12860,-21.92592),
     mapTypeId: google.maps.MapTypeId.ROADMAP 
   });
@@ -18,7 +18,7 @@ function initialize() {
   featureType: "water",
   elementType: "all",
   stylers: [{ 
-      color: "#667D7C" }]
+      color: "#666666" }]
   }, {
   featureType: "poi.business",
   elementType: "labels",
@@ -39,22 +39,13 @@ function numberWithDots(x) {
 }
 
 function addTheDot(map, price, latLng, house){
-    if(house.price < 30000000) {
-      var marker = new google.maps.Marker({
-          position: latLng,
-          title: price,
-          map: map,
-          icon: 'images/purple.png'
-      });
-    }
-    else {
-      var marker = new google.maps.Marker({
-          position: latLng,
-          title: price,
-          map: map,
-          icon: 'images/orange.png'
-      });
-    }
+
+  var marker = new google.maps.Marker({
+      position: latLng,
+      title: price,
+      map: map,
+      icon: 'images/scale1.png'
+  });
   
   markers.push(marker);
   if(house.price > 1000000 && house.price < 20000000) {
